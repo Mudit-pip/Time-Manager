@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical"
+    tools:context=".fragments.fragment_settings">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Themes:"></TextView>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn1_color1_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn2_color2_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn3_color3_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn4_color4_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn5_color5_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+            <ToggleButton
+                android:id="@+id/fragsetting_dialog_tb6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn6_color6_selector"
+                android:textOff=" "
+                android:textOn=" "></ToggleButton>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:text="Gantt Chart Starting Time:"></TextView>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <NumberPicker
+            android:id="@+id/fragment_settings_np"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></NumberPicker>
+        <TextView
+            android:textColor="@color/md_grey_700"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:text=": 00 Am"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></TextView>
+    </LinearLayout>
+</LinearLayout>

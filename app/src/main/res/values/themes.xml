@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TimeManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/custom_button_clicked_blue</item>
+    </style>
+
+    <style name="Base.Theme.TimeManager1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/custom_color1</item>
+        <item name="colorPrimaryDark">@color/custom_color1</item>
+
+    </style>
+
+    <style name="Base.Theme.TimeManager2" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/custom_color2</item>
+        <item name="colorPrimaryDark">@color/custom_color2</item>
+    </style>
+
+    <style name="Base.Theme.TimeManager3" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/custom_color3</item>
+        <item name="colorPrimaryDark">@color/custom_color3</item>
+    </style>
+
+    <style name="Base.Theme.TimeManager4" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/custom_color4</item>
+        <item name="colorPrimaryDark">@color/custom_color4</item>
+    </style>
+
+    <style name="Base.Theme.TimeManager5" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/custom_color5</item>
+        <item name="colorPrimaryDark">@color/custom_color5</item>
+    </style>
+
+    <style name="Base.Theme.TimeManager6" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/custom_color6</item>
+        <item name="colorPrimaryDark">@color/custom_color6</item>
+    </style>
+
+
+
+    <style name="Theme.TimeManager" parent="Base.Theme.TimeManager" />
+</resources>

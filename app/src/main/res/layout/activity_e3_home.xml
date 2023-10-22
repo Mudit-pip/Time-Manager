@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".E3_Home">
+
+
+    <FrameLayout
+        app:layout_constraintBottom_toTopOf="@id/E3_bnv_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_weight="1"
+        android:id="@+id/E3_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        ></FrameLayout>
+<!--    android:layout_marginBottom="?actionBarSize"-->
+
+
+<!--    androidx.coordinatorlayout.widget.CoordinatorLayout-->
+
+<!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:id="@+id/bottomappbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        app:contentInsetLeft="0dp"-->
+<!--        app:contentInsetStart="0dp"-->
+<!--        app:fabCradleMargin="10dp"-->
+<!--        app:fabCradleRoundedCornerRadius="25dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent">-->
+
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            app:itemTextColor="@color/bnv_item_color"-->
+<!--            app:itemIconTint="@color/bnv_item_color"-->
+<!--            android:id="@+id/E3_bnv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/transparent_background"-->
+<!--            app:menu="@menu/bottom_navigation_main"></com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
+<!--    </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/E3_addbtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:contentDescription="@string/app_name"-->
+<!--        android:src="@drawable/baseline_add_24"-->
+<!--        app:layout_anchor="@id/bottomappbar"></com.google.android.material.floatingactionbutton.FloatingActionButton>-->
+
+    <android.widget.Button
+        android:shadowColor="@color/black"
+        android:shadowRadius="@integer/material_motion_duration_long_2"
+        android:id="@+id/E3_btn_2"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/E3_bnv_2"
+        android:textSize="25dp"
+        android:textColor="@color/custom_button_clicked_blue"
+        android:background="@drawable/button_attri"
+        android:text="+"
+        android:layout_width="60dp"
+        android:layout_height="60dp"></android.widget.Button>
+
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="10dp"
+        android:id="@+id/E3_bnv_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
