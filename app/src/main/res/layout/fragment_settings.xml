@@ -1,108 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
     android:orientation="vertical"
     tools:context=".fragments.fragment_settings">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Themes:"></TextView>
+    <ScrollView
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn1_color1_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn2_color2_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/frag_settings_profilepic"
+                android:layout_width="180px"
+                android:layout_height="180px"
+                android:layout_gravity="right"
+                android:padding="10dp"></de.hdodenhof.circleimageview.CircleImageView>
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn3_color3_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn4_color4_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Themes:"></TextView>
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb5"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn5_color5_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ToggleButton
-                android:id="@+id/fragsetting_dialog_tb6"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn6_color6_selector"
-                android:textOff=" "
-                android:textOn=" "></ToggleButton>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn1_color1_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn2_color2_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn3_color3_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn4_color4_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn5_color5_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                    <ToggleButton
+                        android:id="@+id/fragsetting_dialog_tb6"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/btn6_color6_selector"
+                        android:textOff=" "
+                        android:textOn=" "></ToggleButton>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="Gantt Chart Formating:"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <!--        <LinearLayout-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="match_parent"-->
+                <!--            android:gravity="center"-->
+                <!--            android:orientation="vertical">-->
+
+                <!--            -->
+
+                <!--            -->
+
+
+                <!--        </LinearLayout>-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/settings_gantt_image_friday"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                    <TextView
+                        android:id="@+id/frag_settings_task_box"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:background="@color/custom_color4"
+                        android:gravity="center"
+                        android:text="            "
+                        android:textColor="@color/md_grey_700"
+                        android:textSize="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <TextView
+                        android:id="@+id/frag_settings_task1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16px"
+                        android:text="Task 1"
+                        app:layout_constraintBottom_toBottomOf="@id/frag_settings_task_box"
+                        app:layout_constraintStart_toStartOf="@id/frag_settings_task_box"
+                        app:layout_constraintTop_toTopOf="@id/frag_settings_task_box"></TextView>
+
+
+                    <ImageView
+                        android:id="@+id/frag_settings_addbtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_drop_up_24"
+                        app:layout_constraintBottom_toTopOf="@id/frag_settings_task_box"
+                        app:layout_constraintStart_toStartOf="@id/frag_settings_task_box"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/frag_settings_decbtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_drop_down_24"
+                        app:layout_constraintStart_toStartOf="@id/frag_settings_task_box"
+                        app:layout_constraintTop_toBottomOf="@id/frag_settings_task_box"></ImageView>
+
+
+                    <ImageView
+                        android:id="@+id/frag_settings_addbtn_task"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/baseline_text_increase_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/frag_settings_decbtn_task"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/baseline_text_decrease_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/frag_settings_addbtn_task"></ImageView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:text="Gantt Chart Starting Time:"></TextView>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <NumberPicker
-            android:id="@+id/fragment_settings_np"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"></NumberPicker>
-        <TextView
-            android:textColor="@color/md_grey_700"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:textSize="30dp"
-            android:text=": 00 Am"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"></TextView>
-    </LinearLayout>
 </LinearLayout>

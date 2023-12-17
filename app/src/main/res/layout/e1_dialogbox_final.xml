@@ -13,75 +13,19 @@
         android:textSize="20dp"></EditText>
 
 
-    <!--    <ScrollView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="300dp"-->
-    <!--        android:scrollbarSize="10dp">-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_marginTop="20dp"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="vertical">-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:gravity="center"-->
-    <!--                android:orientation="vertical">-->
-
-    <!--                <TextView-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="From:"></TextView>-->
-
-    <!--                <TimePicker-->
-    <!--                    android:id="@+id/E1_tp_from"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="210dp"-->
-    <!--                    android:timePickerMode="spinner"></TimePicker>-->
-
-    <!--            </LinearLayout>-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_marginBottom="20dp"-->
-    <!--                android:layout_marginTop="30dp"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:gravity="center"-->
-    <!--                android:orientation="vertical">-->
-
-    <!--                <TextView-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:text="To:"></TextView>-->
-
-    <!--                <TimePicker-->
-    <!--                    android:id="@+id/E1_tp_to"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="210dp"-->
-    <!--                    android:timePickerMode="spinner"></TimePicker>-->
-
-    <!--            </LinearLayout>-->
-
-    <!--        </LinearLayout>-->
-
-    <!--    </ScrollView>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/E1_dialog_from_txt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="30"
             android:gravity="center_vertical"
             android:text="From:"></TextView>
 
-        <!--        style="@style/Widget.AppCompat.Button"-->
+
         <Button
             android:id="@+id/E1_dialog_btn_from"
             style="?attr/materialButtonOutlinedStyle"
@@ -97,6 +41,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/E1_dialog_to_txt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="30"

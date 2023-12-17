@@ -18,42 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         ></FrameLayout>
-<!--    android:layout_marginBottom="?actionBarSize"-->
-
-
-<!--    androidx.coordinatorlayout.widget.CoordinatorLayout-->
-
-<!--    <com.google.android.material.bottomappbar.BottomAppBar-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:id="@+id/bottomappbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        app:contentInsetLeft="0dp"-->
-<!--        app:contentInsetStart="0dp"-->
-<!--        app:fabCradleMargin="10dp"-->
-<!--        app:fabCradleRoundedCornerRadius="25dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
-
-
-<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--            app:itemTextColor="@color/bnv_item_color"-->
-<!--            app:itemIconTint="@color/bnv_item_color"-->
-<!--            android:id="@+id/E3_bnv"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/transparent_background"-->
-<!--            app:menu="@menu/bottom_navigation_main"></com.google.android.material.bottomnavigation.BottomNavigationView>-->
-
-<!--    </com.google.android.material.bottomappbar.BottomAppBar>-->
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/E3_addbtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:contentDescription="@string/app_name"-->
-<!--        android:src="@drawable/baseline_add_24"-->
-<!--        app:layout_anchor="@id/bottomappbar"></com.google.android.material.floatingactionbutton.FloatingActionButton>-->
 
     <android.widget.Button
         android:shadowColor="@color/black"

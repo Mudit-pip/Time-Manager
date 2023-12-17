@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".E6_studentlogin_page">
+
+    <LinearLayout
+        android:id="@+id/E6_wave_lay"
+        android:background="@drawable/wave1"
+        android:layout_width="match_parent"
+        android:layout_height="450sp"></LinearLayout>
+
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:id="@+id/E6_txt"
+        android:textSize="30dp"
+        app:layout_constraintTop_toTopOf="@id/E6_wave_lay"
+        app:layout_constraintBottom_toBottomOf="@id/E6_wave_lay"
+        android:layout_marginBottom="200dp"
+        android:text="Welcome to\nDaily Planner !"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/E6_txt"
+
+        android:text="Say goodbye to chaos and hello to organized success!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/E6_signinbtn_students"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/E6_wave_lay"
+        app:layout_constraintBottom_toTopOf="@id/E6_wave_lay2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.google.android.gms.common.SignInButton>
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/E6_wave_lay2"
+        android:background="@drawable/wave1_btm"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"></LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        app:layout_constraintBottom_toBottomOf="@id/E6_wave_lay2"
+
+        android:text="- Mudit Choudhary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:id="@+id/E6_creator_btn_txt"
+        android:textSize="12dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@id/E6_signinbtn_students"
+        app:layout_constraintTop_toBottomOf="@id/E6_signinbtn_students"
+        android:text="Login as a Creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

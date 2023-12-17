@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".communitypage_user">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/comm_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name of community"
+                android:textSize="20dp"></TextView>
+
+            <TextView
+                android:gravity="right"
+                android:id="@+id/comm_user_owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-Owner"
+                android:textSize="12dp"></TextView>
+
+            <TextView
+                android:id="@+id/comm_user_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="top"
+                android:text="Description of community"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Scheduled Meets:-"></TextView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

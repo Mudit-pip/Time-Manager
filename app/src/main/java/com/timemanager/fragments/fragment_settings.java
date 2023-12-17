@@ -1,21 +1,44 @@
 package com.timemanager.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
+import com.timemanager.E6_studentlogin_page;
+import com.timemanager.E7_accountdetails;
 import com.timemanager.R;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class fragment_settings extends Fragment {
@@ -25,7 +48,18 @@ public class fragment_settings extends Fragment {
     }
 
     int color_pressed = 0;
-    NumberPicker np;
+
+    Button signout_btn;
+
+    FirebaseDatabase db;
+    DatabaseReference ref;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+    FirebaseAuth auth;
+    CircleImageView profilepic;
+
+    ImageView size_add, size_dec, size_add_task, size_dec_task;
+    TextView task_box, task_text;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,25 +67,110 @@ public class fragment_settings extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        np = view.findViewById(R.id.fragment_settings_np);
-        np.setMinValue(1);
-        np.setMaxValue(12);
-        np.setWrapSelectorWheel(true);
+        size_add = view.findViewById(R.id.frag_settings_addbtn);
+        size_dec = view.findViewById(R.id.frag_settings_decbtn);
+        size_add_task = view.findViewById(R.id.frag_settings_addbtn_task);
+        size_dec_task = view.findViewById(R.id.frag_settings_decbtn_task);
+        task_box = view.findViewById(R.id.frag_settings_task_box);
+        task_text = view.findViewById(R.id.frag_settings_task1);
 
 
         SharedPreferences pref = getContext().getSharedPreferences("pref_Mudit", getContext().MODE_PRIVATE);
 
-        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        task_box.setHeight(pref.getInt("taskbox_height", 90));
+
+        task_text.setTextSize(TypedValue.COMPLEX_UNIT_PX, pref.getFloat("text_size", 40));
+
+        size_add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            public void onClick(View v) {
+                task_box.setHeight(task_box.getHeight()+10);
+
                 SharedPreferences.Editor editor= pref.edit();
-                editor.putInt("start_time", newVal);
+                editor.putInt("taskbox_height", task_box.getHeight());
                 editor.commit();
             }
         });
 
-        int new_k = pref.getInt("start_time", 8);
-        np.setValue(new_k);
+        size_dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                task_box.setHeight(task_box.getHeight()-10);
+
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putInt("taskbox_height", task_box.getHeight());
+                editor.commit();
+            }
+        });
+
+        size_add_task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                task_text.setTextSize(TypedValue.COMPLEX_UNIT_PX, task_text.getTextSize()+5);
+
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putFloat("text_size", task_text.getTextSize());
+                editor.commit();
+            }
+        });
+
+
+        size_dec_task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                task_text.setTextSize(TypedValue.COMPLEX_UNIT_PX, task_text.getTextSize()-5);
+
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putFloat("text_size", task_text.getTextSize());
+                editor.commit();
+            }
+        });
+
+
+        profilepic = view.findViewById(R.id.frag_settings_profilepic);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(getContext(), gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
+        auth = FirebaseAuth.getInstance();
+
+
+
+        if(acct!=null){
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            Uri uri = acct.getPhotoUrl();
+            Picasso.get().load(uri).into(profilepic);
+//            Toast.makeText(getContext(), "Welcome back "+personName+"!!", Toast.LENGTH_SHORT).show();
+            //////////////////////////////////////////////////////////////////////////
+        }
+
+        profilepic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(getContext(), profilepic);
+                popupMenu.getMenuInflater().inflate(R.menu.accountpopupmenu_forsettings, popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getItemId() == R.id.details){
+                            Intent inte = new Intent(getContext(), E7_accountdetails.class);
+                            inte.putExtra("uri", acct.getPhotoUrl().toString());
+                            inte.putExtra("name", acct.getDisplayName());
+                            inte.putExtra("email", acct.getEmail());
+                            startActivity(inte);
+                        } else if(item.getItemId() == R.id.signout){
+                            signOut();
+                        }
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
+
 
 
 
@@ -223,6 +342,7 @@ public class fragment_settings extends Fragment {
     }
 
 
+
     public void changetheme(int theme, int colour) {
         MeowBottomNavigation meownav = getActivity().findViewById(R.id.E3_bnv_2);
         Button btn = getActivity().findViewById(R.id.E3_btn_2);
@@ -270,4 +390,14 @@ public class fragment_settings extends Fragment {
 
     }
 
+
+    void signOut(){
+        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(Task<Void> task) {
+                startActivity(new Intent(getActivity() , E6_studentlogin_page.class));
+                getActivity().finish();
+            }
+        });
+    }
 }

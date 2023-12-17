@@ -2,10 +2,10 @@ package com.timemanager;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -24,9 +24,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.timemanager.fragments.fragment_chart;
 import com.timemanager.fragments.fragment_list;
 import com.timemanager.fragments.fragment_settings;
+import com.timemanager.fragments.fragment_subscriptions;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,9 +41,7 @@ import kotlin.jvm.functions.Function1;
 
 public class E3_Home extends AppCompatActivity {
 
-    //    FloatingActionButton addbtn;
-//    BottomNavigationView bnv;
-    SQLiteDatabase db;
+    //    SQLiteDatabase db;
     int bnv_pos = 0;
     int spinner_pos = 0;
 
@@ -47,19 +50,23 @@ public class E3_Home extends AppCompatActivity {
     MeowBottomNavigation meownav;
     int color_pressed = 0;
 
+    FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference ref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e3_home);
 
 
-//        addbtn = findViewById(R.id.E3_addbtn);
-//        bnv = findViewById(R.id.E3_bnv);
         addnewbtn = findViewById(R.id.E3_btn_2);
 
-        db = openOrCreateDatabase("dba_Mudit", MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS tbl_main (RegId Integer PRIMARY KEY AUTOINCREMENT, time varchar(200), task varchar(400), day varchar(200), colora varchar(200))");
+//        db = openOrCreateDatabase("dba_Mudit", MODE_PRIVATE, null);
+//        db.execSQL("CREATE TABLE IF NOT EXISTS tbl_main (RegId Integer PRIMARY KEY AUTOINCREMENT, time varchar(200), task varchar(400), day varchar(200), colora varchar(200))");
 
+        db = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         loadfrag(new fragment_list(), 0);
 
@@ -77,7 +84,7 @@ public class E3_Home extends AppCompatActivity {
             changetheme(R.style.Base_Theme_TimeManager5, 5);
         } else if (b == 6) {
             changetheme(R.style.Base_Theme_TimeManager6, 6);
-        } else{
+        } else {
             changetheme(R.style.Base_Theme_TimeManager5, 5);
         }
 
@@ -87,8 +94,10 @@ public class E3_Home extends AppCompatActivity {
         meownav.show(2, true);
 
         meownav.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_settings_24));
+        meownav.add(new MeowBottomNavigation.Model(4, R.drawable.baseline_class_24));
         meownav.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_home_24));
         meownav.add(new MeowBottomNavigation.Model(3, R.drawable.baseline_bar_chart_24));
+
 
         meownav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -112,6 +121,11 @@ public class E3_Home extends AppCompatActivity {
                         loadfrag(new fragment_chart(), 1);
                         break;
 
+                    case 4:
+                        addnewbtn.setVisibility(View.GONE);
+                        loadfrag(new fragment_subscriptions(), 1);
+                        break;
+
                 }
 
 
@@ -119,27 +133,6 @@ public class E3_Home extends AppCompatActivity {
             }
         });
 
-
-//        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                int id = item.getItemId();
-//
-//                if (id == R.id.bnv_menu_list) {
-//                    bnv_pos = 0;
-//                    loadfrag(new fragment_list(), 1);
-//
-//                } else if (id == R.id.bnv_menu_chart) {
-//                    bnv_pos = 1;
-//                    loadfrag(new fragment_chart(), 1);
-//
-//                }
-//                return true;
-//            }
-//        });
-//
-//
 
 //add button is here
         addnewbtn.setOnClickListener(new View.OnClickListener() {
@@ -309,7 +302,7 @@ public class E3_Home extends AppCompatActivity {
                                 hr_to = hourOfDay;
                                 min_to = minute;
                             }
-                        }, cal.get(Calendar.HOUR_OF_DAY)+1, cal.get(Calendar.MINUTE), false);
+                        }, cal.get(Calendar.HOUR_OF_DAY) + 1, cal.get(Calendar.MINUTE), false);
 
                         picker.show();
 
@@ -370,10 +363,11 @@ public class E3_Home extends AppCompatActivity {
 
 
                         String color_pressed_string = color_pressed + "";
-                        String qry;
-                        qry = "INSERT INTO tbl_main (time, task, day, colora) VALUES ('" + time + "','" + task.getText().toString() + "','" + day + "', '" + color_pressed_string + "')";
-                        db.execSQL(qry);
+//                        String qry;
+//                        qry = "INSERT INTO tbl_main (time, task, day, colora) VALUES ('" + time + "','" + task.getText().toString() + "','" + day + "', '" + color_pressed_string + "')";
+//                        db.execSQL(qry);
 
+                        add_data_to_firbase(day, time, task.getText().toString(), color_pressed_string);
 
                         if (bnv_pos == 0) {
                             loadfrag(new fragment_list(), 1);
@@ -390,6 +384,23 @@ public class E3_Home extends AppCompatActivity {
         });
 
 
+    }
+
+    public void add_data_to_firbase(String day, String time, String task, String color) {
+        db = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+
+        usermodal data = new usermodal(day, time, task, color);
+        if (user != null) {
+            try {
+                ref = db.getReference().child("Users").child(sanitizeEmail(user.getEmail())).child("personal_time_info").child(day);
+                ref.push().setValue(data);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void changetheme(int theme, int colour) {
@@ -440,13 +451,6 @@ public class E3_Home extends AppCompatActivity {
     }
 
     public String get24(int hours_24, int minutes) {
-//        if (hours_24 > 12) {
-//            return (hours_24 - 12) + ":" + minutes + " PM";
-//        } else {
-//            return hours_24 + ":" + minutes + " AM";
-//        }
-
-
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, hours_24);
         cal.set(Calendar.MINUTE, minutes);
@@ -469,5 +473,8 @@ public class E3_Home extends AppCompatActivity {
         ft.commit();
     }
 
+    private String sanitizeEmail(String email) {
+        return email != null ? email.replace(".", "_dot_").replace("@", "_at_") : "error";
+    }
 
 }
