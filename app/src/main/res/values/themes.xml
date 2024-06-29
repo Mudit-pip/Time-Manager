@@ -3,6 +3,8 @@
     <style name="Base.Theme.TimeManager" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/custom_button_clicked_blue</item>
+        <item name="colorPrimaryDark">@color/custom_button_clicked_blue</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="Base.Theme.TimeManager1" parent="Theme.Material3.DayNight.NoActionBar">
@@ -39,5 +41,6 @@
 
 
 
-    <style name="Theme.TimeManager" parent="Base.Theme.TimeManager" />
+    <style name="Theme.TimeManager" parent="Base.Theme.TimeManager" >
+    </style>
 </resources>

@@ -207,6 +207,41 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:alpha="0.8"
+                    android:text="Week Over?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></TextView>
+
+<!--                <Button-->
+<!--                    android:background="@color/md_red_400"-->
+<!--                    android:layout_marginTop="-5dp"-->
+<!--                    android:text="Reset Week"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"></Button>-->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fragment_settings_resetbtn"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:backgroundTint="@color/md_red_A200"
+                    android:alpha="0.9"
+                    android:text="Load new Week !!"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

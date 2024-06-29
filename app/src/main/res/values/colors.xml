@@ -319,4 +319,8 @@ http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
     <color name="custom_color6">#E040FB</color>
 
 
+
+    <color name="backgroudcolour_default">#FFFAFAFA</color>
+
+
 </resources>

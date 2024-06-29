@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "591258085718",
-    "firebase_url": "https://time-manager-8ee13-default-rtdb.firebaseio.com",
-    "project_id": "time-manager-8ee13",
-    "storage_bucket": "time-manager-8ee13.appspot.com"
+    "project_number": "1005203442392",
+    "firebase_url": "https://timemanagerweek-cd915-default-rtdb.firebaseio.com",
+    "project_id": "timemanagerweek-cd915",
+    "storage_bucket": "timemanagerweek-cd915.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:591258085718:android:10ac7859b738622b6b8ef7",
+        "mobilesdk_app_id": "1:1005203442392:android:46e15a2d876ea32c0725ad",
         "android_client_info": {
-          "package_name": "com.timemanager"
+          "package_name": "com.timemanagerweek"
         }
       },
       "oauth_client": [
         {
-          "client_id": "591258085718-2r2odifqdm1o79l34rf024chk4nsdm5t.apps.googleusercontent.com",
+          "client_id": "1005203442392-9ssusk39g0f22mdusp1upc78e58uj3bo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.timemanager",
-            "certificate_hash": "728f15e45ed416ee57e625a9d8b2396cefca2201"
+            "package_name": "com.timemanagerweek",
+            "certificate_hash": "ce69e53ffade1a594d64be8365155203f35844f8"
           }
         },
         {
-          "client_id": "591258085718-o55qn3uaf41ap0bfvbrieb4tvivm5udi.apps.googleusercontent.com",
+          "client_id": "1005203442392-0dkti6aun9droa8bg249gc9qe4n5rk2i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA8YcnaYDijEESYIXiEQVujcOo7OJdUiH0"
+          "current_key": "AIzaSyAa2oX-p9qzFPnx-JR4e01Yyk9m87WgrZ0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "591258085718-o55qn3uaf41ap0bfvbrieb4tvivm5udi.apps.googleusercontent.com",
+              "client_id": "1005203442392-0dkti6aun9droa8bg249gc9qe4n5rk2i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

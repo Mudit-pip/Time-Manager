@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".E10_Schedule_new_meet_under_e9">
+
+    <EditText
+        android:hint="Meeting Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></EditText>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:hint="Description (optional)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></EditText>
+
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Spinner>
+    
+    <Button
+        android:layout_marginTop="20dp"
+        android:text="Pick Start Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="To"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:text="Pick End Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+
+</LinearLayout>

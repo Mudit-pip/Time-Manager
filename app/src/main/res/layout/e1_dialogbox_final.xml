@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -55,6 +55,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="70"
             android:text="To"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:labelFor="@id/E1_dialog_checkbox_alarm"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Add Alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></TextView>
+
+        <CheckBox
+            android:id="@+id/E1_dialog_checkbox_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></CheckBox>
+
 
     </LinearLayout>
 

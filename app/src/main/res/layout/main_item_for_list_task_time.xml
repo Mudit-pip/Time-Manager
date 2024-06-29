@@ -7,12 +7,26 @@
 
 
 
-    <TextView
-        android:id="@+id/e1_mainlist_task_txt"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="kjdsb"
-        android:textSize="20dp"></TextView>
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/e1_mainlist_task_txt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="kjdsb"
+            android:textSize="20dp"></TextView>
+
+        <ImageView
+            android:id="@+id/e1_mainlit_alarm_img"
+            android:src="@drawable/baseline_alarm_off_24"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></ImageView>
+    </LinearLayout>
 
     <TextView
         android:layout_marginTop="5dp"

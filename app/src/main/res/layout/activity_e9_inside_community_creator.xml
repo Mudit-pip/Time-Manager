@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".E9_inside_community_creator">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:id="@+id/E9_comm_name_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name of community"
+        android:textSize="20dp"></TextView>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/E9_comm_name_creator"
+        android:id="@+id/E9_comm_description_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="top"
+        android:text="Description of community"></TextView>
+
+    <TextView
+        android:id="@+id/E9_txt_schedmeet_for_constraintlay"
+        app:layout_constraintTop_toBottomOf="@id/E9_comm_description_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Scheduled Meets:-"></TextView>
+
+    <ListView
+        app:layout_constraintBottom_toTopOf="@id/E9_newmeet_btn"
+        app:layout_constraintTop_toBottomOf="@id/E9_txt_schedmeet_for_constraintlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></ListView>
+
+    <Button
+        android:id="@+id/E9_newmeet_btn"
+        android:text="+ Schedule new meeting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
